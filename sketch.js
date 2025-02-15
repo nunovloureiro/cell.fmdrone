@@ -15,6 +15,7 @@ let mySketch = function(p) {
     let go = 1, menu = 0, keyMenu = 0, scaleMenu = 0, audioSpigot = 1;
     let wkPos, bkPos, keySize, wkeyVertOfset, bkeyVertOfset, keyVertDist, keyboardSW;
     let teclasBrancas = [], teclasPretas = [], teclado = [], keyID;
+    let octave = 0;
 
     p.preload = function() {
         font = p.loadFont('tiny5.ttf');
@@ -128,6 +129,22 @@ let mySketch = function(p) {
               sendMsgToWebPd("n_0_8", "0", [rx]);
             }
             sendMsgToWebPd("n_0_9", "0", [rz]);
+
+            if (octave == 1){
+              p.fill(0);
+              p.text('+ oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 4 );
+              sendMsgToWebPd("n_0_31", "0", [1]);
+            } else {
+              rx = audioSpigot;
+              p.fill(0);
+              p.text('- oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 4 );
+              sendMsgToWebPd("n_0_31", "0", [0]);
+            }
+
+
+
+
+
         }
 
         if (go == 1 && menu == 1 && keyMenu == 0) {
@@ -177,6 +194,27 @@ let mySketch = function(p) {
               audioSpigot = 1;
             }
         }
+        
+        //octave button
+        if (go == 1 && menu == 0 && keyMenu == 0 && scaleMenu == 0 && p.mouseX > p.windowWidth / 2 - p.windowWidth / 5 && p.mouseX < p.windowWidth / 2 + p.windowWidth / 5 && p.mouseY > p.windowHeight - p.windowHeight / 4.05 - textHeight && p.mouseY < p.windowHeight - p.windowHeight / 4.05 + textHeight) {
+          if (octave == 1){
+            octave = 0;
+          } else {
+            octave = 1;
+          }
+      }        
+
+        //pause button
+        if (go == 1 && menu == 0 && keyMenu == 0 && scaleMenu == 0 && p.mouseX > p.windowWidth / 2 - p.windowWidth / 6 && p.mouseX < p.windowWidth / 2 + p.windowWidth / 6 && p.mouseY > p.windowHeight - p.windowHeight / 3.05 - textHeight && p.mouseY < p.windowHeight - p.windowHeight / 3.05 + textHeight) {
+            if (audioSpigot == 1){
+              audioSpigot = 0;
+            } else {
+              audioSpigot = 1;
+            }
+        }
+
+
+
         //go to key
         if (go == 1 && menu == 1 && keyMenu == 0 && scaleMenu == 0 && p.mouseX > p.windowWidth / 2 - p.windowWidth / 10 && p.mouseX < p.windowWidth / 2 + p.windowWidth / 10 && p.mouseY > p.windowHeight / 2 - p.windowHeight / 8 - textHeight && p.mouseY < p.windowHeight / 2 - p.windowHeight / 8 + 2 * textHeight) {
             menu = 0;
@@ -228,7 +266,7 @@ let mySketch = function(p) {
                 console.log('Key pressed:', hitKey.w_b, hitKey.keyID);
                 let key2pd = 10 * hitKey.w_b + hitKey.keyID;
                 console.log(key2pd);
-                sendMsgToWebPd("n_0_35", "0", [key2pd]);
+                sendMsgToWebPd("n_0_28", "0", [key2pd]);
             }
 
 
