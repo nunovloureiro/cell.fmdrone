@@ -130,12 +130,15 @@ let mySketch = function(p) {
             }
             sendMsgToWebPd("n_0_9", "0", [rz]);
 
+            //octave button
+            p.fill(0, 0, 255);
+            p.rect(p.windowWidth / 2, p.windowHeight - p.windowHeight / 4.05, p.windowWidth / 1.3, p.windowWidth / 4.5);
+
             if (octave == 1){
               p.fill(0);
               p.text('+ oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 4 );
               sendMsgToWebPd("n_0_31", "0", [1]);
             } else {
-              rx = audioSpigot;
               p.fill(0);
               p.text('- oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 4 );
               sendMsgToWebPd("n_0_31", "0", [0]);
