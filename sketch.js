@@ -207,17 +207,6 @@ let mySketch = function(p) {
           }
       }        
 
-        //pause button
-        if (go == 1 && menu == 0 && keyMenu == 0 && scaleMenu == 0 && p.mouseX > p.windowWidth / 2 - p.windowWidth / 6 && p.mouseX < p.windowWidth / 2 + p.windowWidth / 6 && p.mouseY > p.windowHeight - p.windowHeight / 3.05 - textHeight && p.mouseY < p.windowHeight - p.windowHeight / 3.05 + textHeight) {
-            if (audioSpigot == 1){
-              audioSpigot = 0;
-            } else {
-              audioSpigot = 1;
-            }
-        }
-
-
-
         //go to key
         if (go == 1 && menu == 1 && keyMenu == 0 && scaleMenu == 0 && p.mouseX > p.windowWidth / 2 - p.windowWidth / 10 && p.mouseX < p.windowWidth / 2 + p.windowWidth / 10 && p.mouseY > p.windowHeight / 2 - p.windowHeight / 8 - textHeight && p.mouseY < p.windowHeight / 2 - p.windowHeight / 8 + 2 * textHeight) {
             menu = 0;
