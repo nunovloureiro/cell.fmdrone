@@ -132,15 +132,15 @@ let mySketch = function(p) {
 
             //octave button
             p.fill(0, 0, 255);
-            p.rect(p.windowWidth / 2, p.windowHeight - p.windowHeight / 4.05, p.windowWidth / 1.3, p.windowWidth / 4.5);
+            p.rect(p.windowWidth / 2, p.windowHeight - p.windowHeight / 5.05, p.windowWidth / 1.3, p.windowWidth / 4.5);
 
             if (octave == 1){
               p.fill(0);
-              p.text('+ oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 4 );
+              p.text('- oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 5 );
               sendMsgToWebPd("n_0_31", "0", [1]);
             } else {
               p.fill(0);
-              p.text('- oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 4 );
+              p.text('+ oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 5 );
               sendMsgToWebPd("n_0_31", "0", [0]);
             }
 
@@ -199,7 +199,7 @@ let mySketch = function(p) {
         }
         
         //octave button
-        if (go == 1 && menu == 0 && keyMenu == 0 && scaleMenu == 0 && p.mouseX > p.windowWidth / 2 - p.windowWidth / 5 && p.mouseX < p.windowWidth / 2 + p.windowWidth / 5 && p.mouseY > p.windowHeight - p.windowHeight / 4.05 - textHeight && p.mouseY < p.windowHeight - p.windowHeight / 4.05 + textHeight) {
+        if (go == 1 && menu == 0 && keyMenu == 0 && scaleMenu == 0 && p.mouseX > p.windowWidth / 2 - p.windowWidth / 5 && p.mouseX < p.windowWidth / 2 + p.windowWidth / 5 && p.mouseY > p.windowHeight - p.windowHeight / 5.05 - textHeight && p.mouseY < p.windowHeight - p.windowHeight / 5.05 + textHeight) {
           if (octave == 1){
             octave = 0;
           } else {
