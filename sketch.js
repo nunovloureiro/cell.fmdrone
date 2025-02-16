@@ -49,12 +49,14 @@ let mySketch = function(p) {
     }
 
     p.draw = function() {
-        p.gui();
+        
 
         rx = p.rotationX / p.PI;
         ry = p.rotationY / p.PI;
         rz = p.rotationZ / p.PI;
         p.rotationValueLimiter();
+
+        p.gui();
 
         // p.fill(255, 0, 0);
         // p.rect(p.windowWidth / 4, p.windowHeight / 2, 5, 0 + rx * 100);
@@ -128,7 +130,7 @@ let mySketch = function(p) {
               p.text('play', p.windowWidth / 2, p.windowHeight - p.windowHeight / 3 );
               sendMsgToWebPd("n_0_8", "0", [rx]);
             }
-            sendMsgToWebPd("n_0_9", "0", [rz]);
+            
 
             //octave button
             p.fill(0, 0, 255);
@@ -137,19 +139,16 @@ let mySketch = function(p) {
             if (octave == 1){
               p.fill(0);
               p.text('- oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 5 );
-              sendMsgToWebPd("n_0_31", "0", [1]);
+              sendMsgToWebPd("n_0_31", "0", 1);
               console.log(octave);
             } else {
               p.fill(0);
               p.text('+ oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 5 );
-              sendMsgToWebPd("n_0_31", "0", [0]);
+              sendMsgToWebPd("n_0_31", "0", 0);
               console.log(octave);
             }
-
-
-
-
-
+            
+            sendMsgToWebPd("n_0_9", "0", [rz]);
         }
 
         if (go == 1 && menu == 1 && keyMenu == 0) {
