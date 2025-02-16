@@ -138,10 +138,12 @@ let mySketch = function(p) {
               p.fill(0);
               p.text('- oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 5 );
               sendMsgToWebPd("n_0_31", "0", [1]);
+              console.log(octave);
             } else {
               p.fill(0);
               p.text('+ oct', p.windowWidth / 2, p.windowHeight - p.windowHeight / 5 );
               sendMsgToWebPd("n_0_31", "0", [0]);
+              console.log(octave);
             }
 
 
